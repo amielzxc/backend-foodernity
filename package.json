@@ -9,6 +9,7 @@
     "express": "^4.17.1",
     "heroku": "^7.59.0",
     "http": "^0.0.1-security",
+    "https": "^1.0.0",
     "mysql": "^2.18.1",
     "nodemailer": "^6.6.5",
     "nodemon": "^2.0.13"
