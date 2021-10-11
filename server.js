@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
-const port = process.env.PORT || 3001;
+const port = process.env.PORT;
 var cors = require("cors");
 
 app.use(express.urlencoded({ extended: true }));
@@ -24,8 +24,9 @@ app.use("/signup", signup);
 // app.use("/message", message);
 // app.use("/", login);
 
-server.listen(port, "0.0.0.0", () => {
+server.listen(port, () => {
   console.log(`running on port: ${port}`);
+  console.log("hello");
 });
 
 module.exports = server;
