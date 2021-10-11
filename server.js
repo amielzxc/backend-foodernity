@@ -2,12 +2,13 @@ const express = require("express");
 const app = express();
 // const http = require("http");
 // const server = http.createServer(app);
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 var cors = require("cors");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+require("dotenv").config();
 
 app.get("/", (req, res) => {
   res.send("Hello from Stack Over Flowers");
