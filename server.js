@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
-const http = require("http");
-const server = http.createServer(app);
-const port = process.env.PORT || 3001;
+// const http = require("http");
+// const server = http.createServer(app);
+const port = process.env.PORT || 8080;
 var cors = require("cors");
 
 app.use(express.urlencoded({ extended: true }));
@@ -24,7 +24,7 @@ app.use("/signup", signup);
 // app.use("/message", message);
 // app.use("/", login);
 
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`running on port: ${port}`);
   console.log("hello");
 });
