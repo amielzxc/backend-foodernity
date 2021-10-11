@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 var cors = require("cors");
 
 app.use(express.urlencoded({ extended: true }));
