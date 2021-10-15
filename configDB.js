@@ -22,8 +22,6 @@ var db = mysql.createPool({
   connect_timeout: 10,
 });
 
-this.configureExpress(db);
-
 module.exports = db;
 
 // db.query(
