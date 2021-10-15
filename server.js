@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
 });
 
 const signup = require("./routes/signup.js");
-const { options } = require("./routes/signup.js");
 // const listingItem = require("./routes/listingItem.js");
 // const user = require("./routes/user.js");
 // const message = require("./routes/message.js");

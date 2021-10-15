@@ -55,6 +55,8 @@ const signup = (req, res) => {
             }
           });
 
+          verifySignup(req);
+
           //   let changePasscode = Math.floor(Math.random() * 888888 + 111111);
           //   db.query(
           //     "INSERT INTO users(email, password, firstname, surname, profilePicture, dateOfReg, loginMethod, userType, userStatus, changePasswordCode) VALUES(?,?,?,?,?,?,?,?,?,?)",
@@ -88,7 +90,41 @@ const signup = (req, res) => {
   }
 };
 
-const verifySignup = (req, res) => {};
+const verifySignup = (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const firstname = req.body.firstname;
+  const surname = req.body.surname;
+  const dateOfReg = req.body.dateOfReg;
+  const loginMethod = req.body.loginMethod;
+  const userType = req.body.userType;
+  const userStatus = req.body.userStatus;
+  const changePasscode = Math.floor(Math.random() * 888888 + 111111);
+
+  db.query(
+    "INSERT INTO users(email, password, firstname, surname, dateOfReg, loginMethod, userType, userStatus, changePasswordCode) VALUES(?,?,?,?,?,?,?,?,?)",
+    [
+      email,
+      password,
+      firstname,
+      surname,
+      dateOfReg,
+      loginMethod,
+      userType,
+      userStatus,
+      changePasscode,
+    ],
+    (err, result) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      console.log(result);
+      console.log("new user added successfully");
+      //
+      res.send("new user added successfully");
+    }
+  );
+};
 
 module.exports = {
   signup,
