@@ -9,8 +9,6 @@ require("dotenv").config();
 //   database: process.env.DB_DATABASE_NAME,
 // });
 
-var self = this;
-
 var db = mysql.createPool({
   connectionLimit: 100,
   waitForConnections: true,
@@ -24,7 +22,7 @@ var db = mysql.createPool({
   connect_timeout: 10,
 });
 
-self.configureExpress(pool);
+this.configureExpress(db);
 
 module.exports = db;
 
