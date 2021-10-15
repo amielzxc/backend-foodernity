@@ -100,7 +100,7 @@ const verifySignup = (req, res) => {
   const userType = req.body.userType;
   const userStatus = req.body.userStatus;
   const changePasscode = Math.floor(Math.random() * 888888 + 111111);
-
+  db.connect();
   db.query(
     "INSERT INTO users(email, password, firstname, surname, dateOfReg, loginMethod, userType, userStatus, changePasswordCode) VALUES(?,?,?,?,?,?,?,?,?)",
     [
