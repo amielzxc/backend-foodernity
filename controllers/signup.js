@@ -117,7 +117,8 @@ const verifySignup = (req, res) => {
     (err, result) => {
       if (err) {
         console.log(result);
-        res.status(500).send(err);
+        console.log("error");
+        res.send(err);
       } else {
         console.log(result);
         console.log("new user added successfully");
