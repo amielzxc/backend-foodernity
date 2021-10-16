@@ -123,7 +123,7 @@ const verifySignup = (req, res) => {
         console.log(result);
         console.log("new user added successfully");
         //
-        res.send("new user added successfully");
+        res.send({ message: "new user added successfully" });
       }
     }
   );
