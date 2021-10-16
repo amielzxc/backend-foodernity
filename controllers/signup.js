@@ -55,7 +55,7 @@ const signup = (req, res) => {
             }
           });
 
-          verifySignup(req);
+          // verifySignup(req);
 
           //   let changePasscode = Math.floor(Math.random() * 888888 + 111111);
           //   db.query(
