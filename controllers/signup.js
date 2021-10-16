@@ -118,12 +118,12 @@ const verifySignup = (req, res) => {
       if (err) {
         console.log(result);
         console.log("error");
-        // res.send(err);
+        res.send(err);
       } else {
         console.log(result);
         console.log("new user added successfully");
         //
-        // res.send({ message: "new user added successfully" });
+        res.send({ message: "new user added successfully" });
       }
     }
   );
