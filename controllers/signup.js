@@ -4,13 +4,13 @@ const db = require("../configDB.js");
 
 const signup = (req, res) => {
   const email = req.body.email;
-  const password = req.body.password;
-  const firstname = req.body.firstname;
-  const surname = req.body.surname;
-  const dateOfReg = req.body.dateOfReg;
-  const loginMethod = req.body.loginMethod;
-  const userType = req.body.userType;
-  const userStatus = req.body.userStatus;
+  // const password = req.body.password;
+  // const firstname = req.body.firstname;
+  // const surname = req.body.surname;
+  // const dateOfReg = req.body.dateOfReg;
+  // const loginMethod = req.body.loginMethod;
+  // const userType = req.body.userType;
+  // const userStatus = req.body.userStatus;
 
   try {
     db.query("SELECT * FROM user WHERE email= ?", [email], (err, result) => {
@@ -93,8 +93,7 @@ const signup = (req, res) => {
 const verifySignup = (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
-  const firstname = req.body.firstname;
-  const surname = req.body.surname;
+  const fullName = req.body.fullName;
   const dateOfReg = req.body.dateOfReg;
   const loginMethod = req.body.loginMethod;
   const userType = req.body.userType;
@@ -102,12 +101,11 @@ const verifySignup = (req, res) => {
   const changePasscode = Math.floor(Math.random() * 888888 + 111111);
   // db.connect();
   db.query(
-    "INSERT INTO user(email, password, givenName, surname, dateOfReg, loginMethod, userType, userStatus, changePasswordCode) VALUES(?,?,?,?,?,?,?,?,?)",
+    "INSERT INTO user(email, password, fullName, dateOfReg, loginMethod, userType, userStatus, changePasswordCode) VALUES(?,?,?,?,?,?,?,?)",
     [
       email,
       password,
-      firstname,
-      surname,
+      fullName,
       dateOfReg,
       loginMethod,
       userType,
