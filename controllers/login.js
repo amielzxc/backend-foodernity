@@ -58,6 +58,7 @@ const loginViaGoogle = (req, res) => {
     } else {
       if (result.length == 1) {
         //check the login method if it matches the google login
+        console.log(result.loginMethod);
         if (result.loginMethod == "google") {
           console.log("Logged in");
           res.send("Logged in");
