@@ -15,12 +15,14 @@ app.get("/", (req, res) => {
 });
 
 const signup = require("./routes/signup.js");
+const login = require("./routes/login.js");
 // const listingItem = require("./routes/listingItem.js");
 // const user = require("./routes/user.js");
 // const message = require("./routes/message.js");
 // const login = require("./routes/login.js");
 
 app.use("/signup", signup);
+app.use("/login", login);
 // app.use("/user", user);
 // app.use("/message", message);
 // app.use("/", login);
