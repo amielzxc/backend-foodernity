@@ -20,7 +20,7 @@ const loginUser = (req, res) => {
               res.status(500).send(err);
             } else {
               if (result1.length == 1) {
-                console.log(result1);
+                console.log(result1[0]);
                 console.log("logged in");
                 res
                   .status(200)
@@ -34,7 +34,7 @@ const loginUser = (req, res) => {
           }
         );
       } else {
-        res.status(200).send("No account matched!");
+        res.status(200).send("No existing account.");
       }
     }
   });
