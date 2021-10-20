@@ -26,17 +26,13 @@ const loginUser = (req, res) => {
                   .status(200)
                   .send({ message: "logged in", accDetails: result1[0] });
               } else {
-                res
-                  .status(200)
-                  .send({ message: "Wrong email/password.", accDetails: null });
+                res.status(200).send("Wrong email/password.");
               }
             }
           }
         );
       } else {
-        res
-          .status(200)
-          .send({ message: "No existing account.", accDetails: null });
+        res.status(200).send("No existing account.");
       }
     }
   });
