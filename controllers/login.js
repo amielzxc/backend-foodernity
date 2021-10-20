@@ -12,7 +12,7 @@ const loginUser = (req, res) => {
       if (result.length == 1) {
         console.log(result[0]);
         db.query(
-          "SELECT * FROM users WHERE email= ? AND password= ?",
+          "SELECT * FROM user WHERE email= ? AND password= ?",
           [email, password],
           (err, result1) => {
             if (err) {
