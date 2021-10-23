@@ -62,29 +62,6 @@ const loginViaGoogle = (req, res) => {
           console.log("Email is in use in different login method");
           res.send("Email is in use in different login method");
         }
-        // console.log(result[0]);
-        // db.query(
-        //   "SELECT * FROM users WHERE email= ? AND password= ?",
-        //   [email, password],
-        //   (err, result1) => {
-        //     if (err) {
-        //       console.log(err);
-        //       res.status(500).send(err);
-        //     } else {
-        //       if (result1.length == 1) {
-        //         console.log(result1);
-        //         console.log("logged in");
-        //         res
-        //           .status(200)
-        //           .send({ message: "logged in", accDetails: result1[0] });
-        //       } else {
-        //         res
-        //           .status(200)
-        //           .send({ message: "Wrong email/password!", accDetails: null });
-        //       }
-        //     }
-        //   }
-        // );
       } else {
         // res.status(200).send("No account matched!");
 
@@ -108,13 +85,9 @@ const loginViaGoogle = (req, res) => {
               res.send(err);
             } else {
               console.log(result);
-              console.log({
-                message: "new user added successfully via google login",
-              });
+              console.log("new user added successfully via google login");
               //
-              res.send({
-                message: "new user added successfully via google login",
-              });
+              res.send("new user added successfully via google login");
 
               //after successfully saving to the database
             }
