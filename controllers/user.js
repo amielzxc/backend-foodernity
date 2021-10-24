@@ -19,40 +19,40 @@ const getUserDetails = (req, res) => {
 };
 
 const updateUserDetailsDefault = (req, res) => {
-  const userID = req.body.userID;
-  const imagePath = req.body.imagePath;
+  const email = req.body.email;
+  const profilePicture = req.body.profilePicture;
   const fullName = req.body.fullName;
   const password = req.body.password;
 
   db.query(
-    "UPDATE user SET imagePath = ?, fullName= ?, password =? WHERE CustomerID = ?",
-    [imagePath, fullName, password, userID],
+    "UPDATE user SET profilePicture = ?, fullName= ?, password =? WHERE email = ?",
+    [profilePicture, fullName, password, email],
     (err, result) => {
       if (err) {
         console.log(err);
         res.status(500).send(err);
       } else {
-        console.log("Success update: " + userID);
-        res.status(200).send("No existing account.");
+        console.log("Success update default: " + email);
+        res.status(200).send("Success update default");
       }
     }
   );
 };
 const updateUserDetailsGoogle = (req, res) => {
-  const userID = req.body.userID;
-  const imagePath = req.body.imagePath;
+  const email = req.body.email;
+  const profilePicture = req.body.profilePicture;
   const fullName = req.body.fullName;
 
   db.query(
-    "UPDATE user SET imagePath = ?, fullName= ?, WHERE CustomerID = ?",
-    [imagePath, fullName, userID],
+    "UPDATE user SET profilePicture = ?, fullName= ?, WHERE email = ?",
+    [profilePicture, fullName, email],
     (err, result) => {
       if (err) {
         console.log(err);
         res.status(500).send(err);
       } else {
-        console.log("Success update: " + userID);
-        res.status(200).send("No existing account.");
+        console.log("Success update google: " + email);
+        res.status(200).send("Success update google");
       }
     }
   );
