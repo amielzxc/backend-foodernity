@@ -44,7 +44,7 @@ const updateUserDetailsGoogle = (req, res) => {
   const fullName = req.body.fullName;
 
   db.query(
-    "UPDATE user SET profilePicture = ?, fullName= ?, WHERE email = ?",
+    "UPDATE user SET profilePicture = ?, fullName= ? WHERE email = ?",
     [profilePicture, fullName, email],
     (err, result) => {
       if (err) {
