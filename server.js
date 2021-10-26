@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 const signup = require("./routes/signup.js");
 const login = require("./routes/login.js");
 const user = require("./routes/user.js");
+const postDonation = require("./routes/postDonation.js");
 // const listingItem = require("./routes/listingItem.js");
 // const message = require("./routes/message.js");
 // const login = require("./routes/login.js");
@@ -24,6 +25,7 @@ const user = require("./routes/user.js");
 app.use("/signup", signup);
 app.use("/login", login);
 app.use("/user", user);
+app.use("/user", postDonation);
 // app.use("/message", message);
 // app.use("/", login);
 
