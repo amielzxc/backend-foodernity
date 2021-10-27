@@ -4,5 +4,6 @@ const router = express.Router();
 
 router.post("/getDonations", getDonations);
 router.post("/acceptDonations", acceptDonation);
+router.post("/receiveDonations", receiveDonation);
 
 module.exports = router;
