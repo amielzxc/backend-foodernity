@@ -43,7 +43,7 @@ const acceptDonation = (req, res) => {
   const donationID = req.body.donationID;
 
   db.query(
-    "UPDATE users SET status='pending' WHERE donationID=?",
+    "UPDATE donationtable SET status='pending' WHERE donationID=?",
     [donationID],
     (err, result) => {
       if (err) {
