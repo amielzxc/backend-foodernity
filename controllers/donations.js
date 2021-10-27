@@ -20,7 +20,7 @@ const getDonations = (req, res) => {
         //       res.status(500).send(err);
         //     } else {
         //       if (result1.length == 1) {
-        //         console.log(result1[0]);
+        //         console.log(result1[0]);mber
         //         console.log("logged in");
         //         res.status(200).send(result1[0]);
         //       } else {
@@ -37,6 +37,45 @@ const getDonations = (req, res) => {
   );
 };
 
+const acceptDonation = (req, res) => {
+  // const email = req.body.email;
+  // const password = req.body.password;
+  const donationID = req.body.donationID;
+
+  db.query(
+    "UPDATE users SET status='pending' WHERE donationID=?",
+    [donationID],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+
+        // db.query(
+        //   "SELECT * FROM user WHERE email= ? AND password= ? AND userType='admin'",
+        //   [email, password],
+        //   (err, result1) => {
+        //     if (err) {
+        //       console.log(err);
+        //       res.status(500).send(err);
+        //     } else {
+        //       if (result1.length == 1) {
+        //         console.log(result1[0]);mber
+        //         console.log("logged in");
+        //         res.status(200).send(result1[0]);
+        //       } else {
+        //         res.status(200).send("Wrong email/password.");
+        //       }
+        //     }
+        //   }
+        // );
+      } else {
+        console.log(result);
+        res.status(200).send(result);
+        console.log("donation accepted");
+      }
+    }
+  );
+};
 module.exports = {
   getDonations,
 };
