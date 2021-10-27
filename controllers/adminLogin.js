@@ -22,7 +22,7 @@ const loginAdmin = (req, res) => {
               if (result1.length == 1) {
                 console.log(result1[0]);
                 console.log("logged in");
-                res.status(200).send("logged in");
+                res.status(200).send(result1[0]);
               } else {
                 res.status(200).send("Wrong email/password.");
               }
