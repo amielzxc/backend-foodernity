@@ -10,8 +10,7 @@ const getDonations = (req, res) => {
       if (err) {
         console.log(err);
         res.status(500).send(err);
-        console.log(result);
-        res.status(200).send(result);
+
         // db.query(
         //   "SELECT * FROM user WHERE email= ? AND password= ? AND userType='admin'",
         //   [email, password],
@@ -30,6 +29,9 @@ const getDonations = (req, res) => {
         //     }
         //   }
         // );
+      } else {
+        console.log(result);
+        res.status(200).send(result);
       }
     }
   );
