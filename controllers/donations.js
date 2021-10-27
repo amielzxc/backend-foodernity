@@ -5,12 +5,11 @@ const getDonations = (req, res) => {
   // const password = req.body.password;
 
   db.query(
-    "SELECT * FROM donationtable WHERE status='pending' AND status='accepted'",
+    "SELECT * FROM donationtable WHERE status='pending' OR status='accepted'",
     (err, result) => {
       if (err) {
         console.log(err);
         res.status(500).send(err);
-      } else {
         console.log(result);
         res.status(200).send(result);
         // db.query(
