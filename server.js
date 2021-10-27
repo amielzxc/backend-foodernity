@@ -19,6 +19,7 @@ const login = require("./routes/login.js");
 const user = require("./routes/user.js");
 const postDonation = require("./routes/postDonation.js");
 const loginAdmin = require("./routes/adminLogin.js");
+const donations = require("./routes/donations.js");
 // const listingItem = require("./routes/listingItem.js");
 // const message = require("./routes/message.js");
 // const login = require("./routes/login.js");
@@ -28,6 +29,7 @@ app.use("/login", login);
 app.use("/user", user);
 app.use("/post", postDonation);
 app.use("/loginAdmin", loginAdmin);
+app.use("/donations", donations);
 // app.use("/message", message);
 // app.use("/", login);
 
