@@ -186,38 +186,16 @@ const addCallForDonations = (req, res) => {
 };
 
 const getCallForDonations = (req, res) => {
-  db.query(
-    "SELECT * FROM callfordonation WHERE status='active'",
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        res.status(500).send(err);
-
-        // db.query(
-        //   "SELECT * FROM user WHERE email= ? AND password= ? AND userType='admin'",
-        //   [email, password],
-        //   (err, result1) => {
-        //     if (err) {
-        //       console.log(err);
-        //       res.status(500).send(err);
-        //     } else {
-        //       if (result1.length == 1) {
-        //         console.log(result1[0]);mber
-        //         console.log("logged in");
-        //         res.status(200).send(result1[0]);
-        //       } else {
-        //         res.status(200).send("Wrong email/password.");
-        //       }
-        //     }
-        //   }
-        // );
-      } else {
-        console.log(result);
-        console.log("fetch call for donation");
-        res.status(200).send(result);
-      }
+  db.query("SELECT * FROM callfordonation", (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(err);
+    } else {
+      console.log(result);
+      console.log("fetch call for donation");
+      res.status(200).send(result);
     }
-  );
+  });
 };
 
 const updateCallForDonations = (req, res) => {
@@ -229,25 +207,6 @@ const updateCallForDonations = (req, res) => {
       if (err) {
         console.log(err);
         res.status(500).send(err);
-
-        // db.query(
-        //   "SELECT * FROM user WHERE email= ? AND password= ? AND userType='admin'",
-        //   [email, password],
-        //   (err, result1) => {
-        //     if (err) {
-        //       console.log(err);
-        //       res.status(500).send(err);
-        //     } else {
-        //       if (result1.length == 1) {
-        //         console.log(result1[0]);mber
-        //         console.log("logged in");
-        //         res.status(200).send(result1[0]);
-        //       } else {
-        //         res.status(200).send("Wrong email/password.");
-        //       }
-        //     }
-        //   }
-        // );
       } else {
         console.log(result);
         console.log("update call for donation");
