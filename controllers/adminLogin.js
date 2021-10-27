@@ -12,7 +12,7 @@ const loginAdmin = (req, res) => {
       if (result.length == 1) {
         console.log(result[0]);
         db.query(
-          "SELECT * FROM user WHERE email= ? AND password= ? and userType=admin",
+          "SELECT * FROM user WHERE email= ? AND password= ? AND userType='admin'",
           [email, password],
           (err, result1) => {
             if (err) {
