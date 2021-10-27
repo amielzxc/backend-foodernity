@@ -149,33 +149,15 @@ const addCallForDonations = (req, res) => {
   const description = req.body.description;
   const imgPath = req.body.imgPath;
   const status = req.body.status;
+  const date = req.body.date;
 
   db.query(
-    "INSERT INTO callfordonation (title,description,imgPath,status)VALUES(?,?,?,?)",
-    [title, description, imgPath, status],
+    "INSERT INTO callfordonation (title,description,imgPath,status,date)VALUES(?,?,?,?,?)",
+    [title, description, imgPath, status, date],
     (err, result) => {
       if (err) {
         console.log(err);
         res.status(500).send(err);
-
-        // db.query(
-        //   "SELECT * FROM user WHERE email= ? AND password= ? AND userType='admin'",
-        //   [email, password],
-        //   (err, result1) => {
-        //     if (err) {
-        //       console.log(err);
-        //       res.status(500).send(err);
-        //     } else {
-        //       if (result1.length == 1) {
-        //         console.log(result1[0]);mber
-        //         console.log("logged in");
-        //         res.status(200).send(result1[0]);
-        //       } else {
-        //         res.status(200).send("Wrong email/password.");
-        //       }
-        //     }
-        //   }
-        // );
       } else {
         console.log(result);
         console.log("added call for donation");
