@@ -78,4 +78,5 @@ const acceptDonation = (req, res) => {
 };
 module.exports = {
   getDonations,
+  acceptDonation,
 };
