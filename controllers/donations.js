@@ -70,8 +70,21 @@ const acceptDonation = (req, res) => {
         // );
       } else {
         console.log(result);
-        res.status(200).send(result);
+        // res.status(200).send(result);
         console.log("donation accepted");
+
+        db.query(
+          "SELECT * FROM donationtable WHERE status='pending' OR status='accepted'",
+          (err, result) => {
+            if (err) {
+              console.log(err);
+              res.status(500).send(err);
+            } else {
+              console.log(result);
+              res.status(200).send(result);
+            }
+          }
+        );
       }
     }
   );
