@@ -3,25 +3,24 @@ const db = require("../configDB.js");
 const postDonation = (req, res) => {
   //func
 
-  const donationDonor = req.body.donationDonor;
+  const donationDonor = req.body.userID;
   const date = req.body.date;
-  const time = req.body.time;
   const donationName = req.body.donationName;
   const donationCategories = req.body.donationCategories;
   const donationQuantities = req.body.donationQuantities;
   const imgPath = req.body.imgPath;
+  const status = req.body.status;
 
   db.query(
-    "INSERT INTO donationtable(donationDonor, date, time, donationName, donationCategories, donationQuantities, imgPath, status) VALUES(?,?,?,?,?,?,?,?)",
+    "INSERT INTO donationtable(donationDonor, date,  donationName, donationCategories, donationQuantities, imgPath, status) VALUES(?,?,?,?,?,?,?)",
     [
       donationDonor,
       date,
-      time,
       donationName,
       donationCategories,
       donationQuantities,
       imgPath,
-      "pending",
+      status,
     ],
     (err, result) => {
       if (err) {
