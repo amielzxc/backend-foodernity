@@ -21,28 +21,28 @@ const addStocks = (req, res) => {
           //
           //   res.send("specific category fetched successfully");
 
-          console.log(result[0].receivedDonations);
-          // var received = Number(result.data.receivedDonations);
-          // var stocks = Number(result.data.stocks);
-          // var newReceived = received + qtyArr[x];
-          // var newStocks = stocks + qtyArr[x];
+          // console.log(result[0].receivedDonations);
+          var received = Number(result[0].receivedDonations);
+          var stocks = Number(result[0].stocks);
+          var newReceived = received + qtyArr[x];
+          var newStocks = stocks + qtyArr[x];
 
-          // db.query(
-          //   "UPDATE inventorytable SET receivedDonations= ? AND stocks= ?  WHERE categories=?",
-          //   [newReceived, newStocks, categArr[x]],
-          //   (err, result) => {
-          //     if (err) {
-          //       console.log(result);
-          //       console.log("error");
-          //       res.send(err);
-          //     } else {
-          //       console.log(result);
-          //       console.log("stocks updated and added successfully");
+          db.query(
+            "UPDATE inventorytable SET receivedDonations= ? AND stocks= ?  WHERE categories=?",
+            [newReceived, newStocks, categArr[x]],
+            (err, result) => {
+              if (err) {
+                console.log(result);
+                console.log("error");
+                res.send(err);
+              } else {
+                console.log(result);
+                console.log("stocks updated and added successfully");
 
-          //       res.send("stocks updated and added successfully");
-          //     }
-          //   }
-          // );
+                res.send("stocks updated and added successfully");
+              }
+            }
+          );
         }
       }
     );
@@ -115,8 +115,8 @@ const removeStocks = (req, res) => {
         //
         //   res.send("specific category fetched successfully");
 
-        var donated = result[0].data.donatedDonations;
-        var stocks = result[0].data.stocks;
+        var donated = Number(result[0].donatedDonations);
+        var stocks = Number(result[0].stocks);
         var newDonated = donated + Number(qty);
         var newStocks = stocks - Number(qty);
 
@@ -143,47 +143,17 @@ const removeStocks = (req, res) => {
 
 const getStocks = (req, res) => {
   //func
-  const categ = req.body.categ;
-  const qty = req.body.qty;
 
-  db.query(
-    "SELECT * FROM inventorytable WHERE categories=?",
-    [categ],
-    (err, result) => {
-      if (err) {
-        console.log(result);
-        console.log("error");
-        res.send(err);
-      } else {
-        console.log(result);
-        console.log("specific category to be subtracted fetched successfully");
-        //
-        //   res.send("specific category fetched successfully");
-
-        var donated = result[0].data.donatedDonations;
-        var stocks = result[0].data.stocks;
-        var newDonated = donated + Number(qty);
-        var newStocks = stocks - Number(qty);
-
-        db.query(
-          "UPDATE inventorytable SET donatedDonations=? AND stocks=?  WHERE categories=?",
-          [newDonated, newStocks, categ],
-          (err, result) => {
-            if (err) {
-              console.log(result);
-              console.log("error");
-              res.send(err);
-            } else {
-              console.log(result);
-              console.log("stocks updated and subtracted successfully");
-
-              res.send("stocks updated and subtracted successfully");
-            }
-          }
-        );
-      }
+  db.query("SELECT * FROM inventorytable", (err, result) => {
+    if (err) {
+      console.log(result);
+      console.log("error");
+      res.send(err);
+    } else {
+      console.log(result);
+      console.log("Stocks fetched successfully");
     }
-  );
+  });
 };
 
 module.exports = {
