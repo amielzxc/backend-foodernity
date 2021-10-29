@@ -1,3 +1,4 @@
+const { get } = require("http");
 const db = require("../configDB.js");
 
 const addStocks = (req, res) => {
@@ -5,48 +6,68 @@ const addStocks = (req, res) => {
   const categArr = req.body.categArr;
   const qtyArr = req.body.qtyArr;
   console.log(categArr);
-  for (var x = 0; x < categArr.length; x++) {
-    console.log(categArr[x]);
-    db.query(
-      "SELECT * FROM inventorytable WHERE categories=?",
-      [categArr[x]],
-      (err, result) => {
-        if (err) {
-          console.log(result);
-          console.log("error");
-          res.send(err);
-        } else {
-          console.log(result);
-          console.log("specific category fetched successfully");
-          //
-          //   res.send("specific category fetched successfully");
+  var getAll;
+  db.query("SELECT * FROM inventorytable", (err, result) => {
+    if (err) {
+      console.log(result);
+      console.log("error");
+      res.send(err);
+    } else {
+      // console.log(result);
+      console.log("fetched successfully");
+      getAll = result;
 
-          // console.log(result[0].receivedDonations);
-          var received = Number(result[0].receivedDonations);
-          var stocks = Number(result[0].stocks);
-          var newReceived = received + Number(qtyArr[x]);
-          var newStocks = stocks + Number(qtyArr[x]);
+      console.log(getAll);
+      // for(var x = 0; x < categArr.length; x++){
+      //   if(getAll[x]){
 
-          db.query(
-            "UPDATE inventorytable SET receivedDonations= ? AND stocks= ?  WHERE categories=?",
-            [newReceived, newStocks, categArr[x]],
-            (err, result) => {
-              if (err) {
-                console.log(result);
-                console.log("error");
-                res.send(err);
-              } else {
-                console.log(result);
-                console.log("stocks updated and added successfully");
+      //   }
+      // }
+    }
+  });
 
-                res.send("stocks updated and added successfully");
-              }
-            }
-          );
-        }
-      }
-    );
-  }
+  // for (var x = 0; x < categArr.length; x++) {
+  //   console.log(categArr[x]);
+  //   db.query(
+  //     "SELECT * FROM inventorytable WHERE categories=?",
+  //     [categArr[x]],
+  //     (err, result) => {
+  //       if (err) {
+  //         console.log(result);
+  //         console.log("error");
+  //         res.send(err);
+  //       } else {
+  //         console.log(result);
+  //         console.log("specific category fetched successfully");
+  //         //
+  //         //   res.send("specific category fetched successfully");
+
+  //         // console.log(result[0].receivedDonations);
+  //         var received = Number(result[0].receivedDonations);
+  //         var stocks = Number(result[0].stocks);
+  //         var newReceived = received + Number(qtyArr[x]);
+  //         var newStocks = stocks + Number(qtyArr[x]);
+
+  //         db.query(
+  //           "UPDATE inventorytable SET receivedDonations= ? AND stocks= ?  WHERE categories=?",
+  //           [newReceived, newStocks, categArr[x]],
+  //           (err, result) => {
+  //             if (err) {
+  //               console.log(result);
+  //               console.log("error");
+  //               res.send(err);
+  //             } else {
+  //               console.log(result);
+  //               console.log("stocks updated and added successfully");
+
+  //               res.send("stocks updated and added successfully");
+  //             }
+  //           }
+  //         );
+  //       }
+  //     }
+  //   );
+  // }
 };
 
 // const addStocks = (req, res) => {
