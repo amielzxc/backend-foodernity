@@ -47,16 +47,11 @@ const addStocks = (req, res) => {
               console.log(result);
               console.log("stocks updated and added successfully");
 
-              res.send("stocks updated and added successfully");
+              // res.send("stocks updated and added successfully");
             }
           }
         );
       }
-      // for(var x = 0; x < categArr.length; x++){
-      //   if(getAll[x]){
-
-      //   }
-      // }
     }
   });
 
