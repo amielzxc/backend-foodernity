@@ -28,7 +28,7 @@ const addStocks = (req, res) => {
       for (let i = 0; i < categArr.length; i++) {
         console.log(result[0].receivedDonations + " " + Number(qtyArr[i]));
         db.query(
-          "UPDATE inventorytable SET receivedDonations= ? AND stocks= ?  WHERE categories=?",
+          "UPDATE inventorytable SET receivedDonations=? AND stocks=?  WHERE categories=?",
           [
             Number(result[0].receivedDonations) + Number(qtyArr[i]),
             Number(result[0].stocks) + Number(qtyArr[i]),
