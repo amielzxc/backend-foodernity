@@ -21,8 +21,8 @@ const addStocks = (req, res) => {
           //
           //   res.send("specific category fetched successfully");
 
-          var received = result[0].data.receivedDonations;
-          var stocks = result[0].data.stocks;
+          var received = Number(result[0].data.receivedDonations);
+          var stocks = Number(result[0].data.stocks);
           var newReceived = received + qtyArr[x];
           var newStocks = stocks + qtyArr[x];
 
