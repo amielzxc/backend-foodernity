@@ -29,8 +29,8 @@ const addStocks = (req, res) => {
         db.query(
           "UPDATE inventorytable SET receivedDonations= ? AND stocks= ?  WHERE categories=?",
           [
-            Number(result[i].receivedDonations) + Number(qtyArr[i]),
-            Number(result[i].stocks) + Number(qtyArr[i]),
+            Number(result[0].receivedDonations) + Number(qtyArr[i]),
+            Number(result[0].stocks) + Number(qtyArr[i]),
             categArr[i],
           ],
           (err, result) => {
