@@ -17,7 +17,14 @@ const addStocks = (req, res) => {
       console.log("fetched successfully");
       getAll = result;
 
-      console.log(getAll);
+      //console.log(getAll[0].categories);
+
+      for (let i = 0; i < result.length; i++) {
+        console.log(
+          `${result[x].categories}: ${result[x].stocks} ${result[x].receivedDonations}`
+        );
+      }
+
       // for(var x = 0; x < categArr.length; x++){
       //   if(getAll[x]){
 
