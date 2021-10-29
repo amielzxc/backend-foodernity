@@ -4,8 +4,9 @@ const addStocks = (req, res) => {
   //func
   const categArr = JSON.parse(req.body.categArr);
   const qtyArr = JSON.parse(req.body.qtyArr);
-
+  console.log(categArr);
   for (var x = 0; x < categArr.length; x++) {
+    console.log(categArr[x]);
     db.query(
       "SELECT * FROM inventorytable WHERE categories=?",
       [categArr[x]],
