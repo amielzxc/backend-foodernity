@@ -21,27 +21,28 @@ const addStocks = (req, res) => {
           //
           //   res.send("specific category fetched successfully");
 
-          var received = Number(result.data.receivedDonations);
-          var stocks = Number(result.data.stocks);
-          var newReceived = received + qtyArr[x];
-          var newStocks = stocks + qtyArr[x];
+          console.log(result[0].data.receivedDonations);
+          // var received = Number(result.data.receivedDonations);
+          // var stocks = Number(result.data.stocks);
+          // var newReceived = received + qtyArr[x];
+          // var newStocks = stocks + qtyArr[x];
 
-          db.query(
-            "UPDATE inventorytable SET receivedDonations= ? AND stocks= ?  WHERE categories=?",
-            [newReceived, newStocks, categArr[x]],
-            (err, result) => {
-              if (err) {
-                console.log(result);
-                console.log("error");
-                res.send(err);
-              } else {
-                console.log(result);
-                console.log("stocks updated and added successfully");
+          // db.query(
+          //   "UPDATE inventorytable SET receivedDonations= ? AND stocks= ?  WHERE categories=?",
+          //   [newReceived, newStocks, categArr[x]],
+          //   (err, result) => {
+          //     if (err) {
+          //       console.log(result);
+          //       console.log("error");
+          //       res.send(err);
+          //     } else {
+          //       console.log(result);
+          //       console.log("stocks updated and added successfully");
 
-                res.send("stocks updated and added successfully");
-              }
-            }
-          );
+          //       res.send("stocks updated and added successfully");
+          //     }
+          //   }
+          // );
         }
       }
     );
