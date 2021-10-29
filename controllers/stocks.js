@@ -19,19 +19,23 @@ const addStocks = (req, res) => {
 
       //console.log(getAll[0].categories);
 
-      // for (let i = 0; i < result.length; i++) {
-      //   console.log(
-      //     `${result[i].categories}: ${result[i].stocks} ${result[i].receivedDonations}`
-      //   );
-      // }
+      let categories = {};
+
+      for (let i = 0; i < result.length; i++) {
+        categories[result[i].categories] = {
+          receivedDonations: result[i].receivedDonations,
+          stocks: result[i].stocks,
+        };
+      }
 
       for (let i = 0; i < categArr.length; i++) {
-        console.log(result[0].receivedDonations + " " + Number(qtyArr[i]));
+        //console.log(c.receivedDonations + " " + Number(qtyArr[i]));
         db.query(
           "UPDATE inventorytable SET receivedDonations=? AND stocks=?  WHERE categories=?",
           [
-            Number(result[0].receivedDonations) + Number(qtyArr[i]),
-            Number(result[0].stocks) + Number(qtyArr[i]),
+            Number(categories[categArr[i]].receivedDonations) +
+              Number(qtyArr[i]),
+            Number(categories[categArr[i]].stocks) + Number(qtyArr[i]),
             categArr[i],
           ],
           (err, result) => {
