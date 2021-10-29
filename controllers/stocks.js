@@ -2,8 +2,8 @@ const db = require("../configDB.js");
 
 const addStocks = (req, res) => {
   //func
-  const categArr = JSON.parse(req.body.categArr);
-  const qtyArr = JSON.parse(req.body.qtyArr);
+  const categArr = Array(req.body.categArr);
+  const qtyArr = Array(req.body.qtyArr);
   console.log(categArr);
   for (var x = 0; x < categArr.length; x++) {
     console.log(categArr[x]);
