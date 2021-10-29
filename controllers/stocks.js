@@ -171,7 +171,7 @@ const removeStocks = (req, res) => {
         var newStocks = stocks - Number(qty);
 
         db.query(
-          "UPDATE inventorytable SET donatedDonations=? AND stocks=?  WHERE categories=?",
+          "UPDATE inventorytable SET donatedDonations=?, stocks=?  WHERE categories=?",
           [newDonated, newStocks, categ],
           (err, result) => {
             if (err) {
