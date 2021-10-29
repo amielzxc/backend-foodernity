@@ -21,7 +21,7 @@ const addStocks = (req, res) => {
 
       for (let i = 0; i < result.length; i++) {
         console.log(
-          `${result[x].categories}: ${result[x].stocks} ${result[x].receivedDonations}`
+          `${result[i].categories}: ${result[i].stocks} ${result[i].receivedDonations}`
         );
       }
 
