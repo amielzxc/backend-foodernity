@@ -120,7 +120,7 @@ const removeStocks = (req, res) => {
 
       for (let i = 0; i < result.length; i++) {
         categories[result[i].categories] = {
-          receivedDonations: result[i].receivedDonations,
+          donatedDonations: result[i].donatedDonations,
           stocks: result[i].stocks,
         };
       }
