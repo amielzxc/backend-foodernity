@@ -143,14 +143,13 @@ const removeStocks = (req, res) => {
             } else {
               console.log(result);
               console.log("stocks updated and removed some successfully");
-
-              
             }
           }
         );
       }
     }
   });
+};
 // const removeStocks = (req, res) => {
 //   //func
 
