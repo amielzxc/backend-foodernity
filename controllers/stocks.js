@@ -6,6 +6,7 @@ const addStocks = (req, res) => {
   const qtyArr = req.body.qtyArr;
   console.log(categArr);
 
+  console.log("add stocks");
   db.query("SELECT * FROM inventorytable", (err, result) => {
     if (err) {
       console.log(result);
@@ -105,7 +106,7 @@ const removeStocks = (req, res) => {
   const qtyArr = req.body.qtyArr;
   console.log(categArr);
   console.log(qtyArr);
-
+  console.log("remove stocks");
   db.query("SELECT * FROM inventorytable", (err, result) => {
     if (err) {
       console.log(result);
@@ -202,7 +203,7 @@ const removeStocks = (req, res) => {
 
 const getStocks = (req, res) => {
   //func
-
+  console.log("get stocks");
   db.query("SELECT * FROM inventorytable", (err, result) => {
     if (err) {
       console.log(result);
