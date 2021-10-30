@@ -154,6 +154,7 @@ const removeStocks = (req, res) => {
           }
         );
       }
+      res.send("stocks updated and removed some successfully");
     }
   });
 };
