@@ -7,7 +7,7 @@ const getChangePasswordCode = (req, res) => {
   db.query("SELECT * FROM user WHERE email=?", [email], (err, result) => {
     if (err) {
       console.log(err);
-      res.status(500).send(err);
+      res.send(err);
     } else {
       if (result.length == 1) {
         console.log(result[0]);
