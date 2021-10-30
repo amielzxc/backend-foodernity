@@ -202,6 +202,7 @@ const getStocks = (req, res) => {
     } else {
       console.log(result);
       console.log("Stocks fetched successfully");
+      res.send(result);
     }
   });
 };
