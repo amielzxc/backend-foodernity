@@ -100,8 +100,8 @@ const addStocks = (req, res) => {
 
 const removeStocks = (req, res) => {
   //func
-  const categArr = String(req.body.categArr).split(",");
-  const qtyArr = String(req.body.qtyArr).split(",");
+  const categArr = req.body.categArr;
+  const qtyArr = req.body.qtyArr;
   console.log(categArr);
 
   db.query("SELECT * FROM inventorytable", (err, result) => {
@@ -125,6 +125,8 @@ const removeStocks = (req, res) => {
         };
       }
       console.log(categories);
+      console.log(categArr);
+      console.log(qtyArr);
       for (let i = 0; i < categArr.length; i++) {
         //console.log(c.receivedDonations + " " + Number(qtyArr[i]));
         db.query(
