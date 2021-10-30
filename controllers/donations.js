@@ -199,6 +199,41 @@ const updateCallForDonations = (req, res) => {
   );
 };
 
+const distributeDonations = (req, res) => {
+  // const email = req.body.email;
+  // const password = req.body.password;
+  const donationImage = req.body.donationImage;
+  const donationCategory = req.body.donationCategory;
+  const donationQuantity = req.body.donationQuantity;
+  const donationRecipient = req.body.donationRecipient;
+  const recipientLocation = req.body.recipientLocation;
+  const donationRemarks = req.body.donationRemarks;
+  const date = req.body.date;
+
+  db.query(
+    "INSERT INTO distributeddonations (donationImage,donationCategory,donationQuantity,donationRecipient,recipientLocation,donationRemarks,date)VALUES(?,?,?,?,?,?,?)",
+    [
+      donationImage,
+      donationCategory,
+      donationQuantity,
+      donationRecipient,
+      recipientLocation,
+      donationRemarks,
+      date,
+    ],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      } else {
+        console.log(result);
+        console.log("donation distributed");
+        res.status(200).send(result);
+      }
+    }
+  );
+};
+
 module.exports = {
   getDonations,
   acceptDonation,
@@ -206,4 +241,5 @@ module.exports = {
   addCallForDonations,
   getCallForDonations,
   updateCallForDonations,
+  distributeDonations,
 };

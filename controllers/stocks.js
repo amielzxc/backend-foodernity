@@ -1,4 +1,3 @@
-const { get } = require("http");
 const db = require("../configDB.js");
 
 const addStocks = (req, res) => {
@@ -6,7 +5,7 @@ const addStocks = (req, res) => {
   const categArr = req.body.categArr;
   const qtyArr = req.body.qtyArr;
   console.log(categArr);
-  var getAll;
+
   db.query("SELECT * FROM inventorytable", (err, result) => {
     if (err) {
       console.log(result);
@@ -148,6 +147,7 @@ const addStocks = (req, res) => {
 
 const removeStocks = (req, res) => {
   //func
+
   const categ = req.body.categ;
   const qty = req.body.qty;
 

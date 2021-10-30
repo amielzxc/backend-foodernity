@@ -6,6 +6,7 @@ const {
   addCallForDonations,
   getCallForDonations,
   updateCallForDonations,
+  distributeDonations,
 } = require("../controllers/donations.js");
 const router = express.Router();
 
@@ -15,5 +16,5 @@ router.post("/receiveDonations", receiveDonation);
 router.post("/addCallForDonations", addCallForDonations);
 router.post("/getCallForDonations", getCallForDonations);
 router.post("/updateCallForDonations", updateCallForDonations);
-
+router.post("/distributeDonations", distributeDonations);
 module.exports = router;
