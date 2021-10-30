@@ -51,6 +51,7 @@ const addStocks = (req, res) => {
           }
         );
       }
+      res.send("stocks updated and added successfully");
     }
   });
 
