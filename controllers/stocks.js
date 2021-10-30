@@ -155,10 +155,7 @@ const removeStocks = (req, res) => {
         );
       }
 
-      setTimeout(
-        () => res.send("stocks updated and removed some successfully"),
-        0
-      );
+      res.send("stocks updated and removed some successfully");
     }
   });
 };
