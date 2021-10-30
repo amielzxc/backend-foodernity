@@ -27,6 +27,8 @@ const addStocks = (req, res) => {
           stocks: result[i].stocks,
         };
       }
+
+      //hello
       console.log(categories);
       for (let i = 0; i < categArr.length; i++) {
         console.log(categories[i].receivedDonations + " " + Number(qtyArr[i]));
