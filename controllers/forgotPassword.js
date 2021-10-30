@@ -36,7 +36,7 @@ const getChangePasswordCode = (req, res) => {
 
         res.send(changePassCode);
       } else {
-        res.status(200).send("No existing account.");
+        res.send("No existing account.");
       }
     }
   });
