@@ -7,7 +7,7 @@ const getChangePasswordCode = (req, res) => {
   db.query("SELECT * FROM user WHERE email=?", [email], (err, result) => {
     if (err) {
       console.log(err);
-      res.send(err);
+      res.sendStatus(err);
     } else {
       if (result.length == 1) {
         console.log(result[0]);
@@ -34,9 +34,9 @@ const getChangePasswordCode = (req, res) => {
           }
         });
 
-        res.send(changePassCode);
+        res.sendStatus(changePassCode);
       } else {
-        res.send("No existing account.");
+        res.sendStatus("No existing account.");
       }
     }
   });
