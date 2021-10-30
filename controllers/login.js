@@ -22,7 +22,12 @@ const loginUser = (req, res) => {
               if (result1.length == 1) {
                 console.log(result1[0]);
                 console.log("logged in");
-                res.status(200).send("logged in");
+
+                if (result1[0].userStatus == "suspended") {
+                  res.status(200).send("Suspended");
+                } else {
+                  res.status(200).send("Logged in");
+                }
               } else {
                 res.status(200).send("Wrong email/password.");
               }
