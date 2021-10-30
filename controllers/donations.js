@@ -31,6 +31,7 @@ const getDonations = (req, res) => {
         // );
       } else {
         console.log(result);
+
         res.status(200).send(result);
       }
     }
