@@ -28,7 +28,7 @@ const addStocks = (req, res) => {
       }
       console.log(categories);
       for (let i = 0; i < categArr.length; i++) {
-        //console.log(c.receivedDonations + " " + Number(qtyArr[i]));
+        console.log(c.receivedDonations + " " + Number(qtyArr[i]));
         db.query(
           "UPDATE inventorytable SET receivedDonations=?, stocks=?  WHERE categories=?",
           [
@@ -103,6 +103,7 @@ const removeStocks = (req, res) => {
   const categArr = req.body.categArr;
   const qtyArr = req.body.qtyArr;
   console.log(categArr);
+  console.log(qtyArr);
 
   db.query("SELECT * FROM inventorytable", (err, result) => {
     if (err) {
