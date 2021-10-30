@@ -42,6 +42,29 @@ const getChangePasswordCode = (req, res) => {
   });
 };
 
+const updatePassword = (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  db.query(
+    "UPDATE user SET password=? WHERE email=?",
+    [password, email],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      } else {
+        console.log(result);
+
+        console.log("Password updated");
+
+        res.send("Password updated");
+      }
+    }
+  );
+};
+
 module.exports = {
   getChangePasswordCode,
+  updatePassword,
 };
