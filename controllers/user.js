@@ -58,8 +58,52 @@ const updateUserDetailsGoogle = (req, res) => {
   );
 };
 
+const getUsers = (req, res) => {
+  db.query("SELECT * FROM user", (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(err);
+    } else {
+      res.send(result);
+    }
+  });
+};
+
+const suspendUsers = (req, res) => {
+  db.query(
+    "UPDATE user SET userStatus = 'suspended' WHERE userID = ?",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      } else {
+        console.log("user suspended successfully");
+        res.send("user suspended successfully");
+      }
+    }
+  );
+};
+
+const unsuspendUsers = (req, res) => {
+  db.query(
+    "UPDATE user SET userStatus = 'active' WHERE userID = ?",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      } else {
+        console.log("user unsuspended successfully");
+        res.send("user unsuspended successfully");
+      }
+    }
+  );
+};
+
 module.exports = {
   getUserDetails,
   updateUserDetailsDefault,
   updateUserDetailsGoogle,
+  getUsers,
+  unsuspendUsers,
+  suspendUsers,
 };
