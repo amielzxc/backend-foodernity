@@ -62,7 +62,11 @@ const loginViaGoogle = (req, res) => {
         console.log(result[0]);
         if (result[0].loginMethod == "google") {
           console.log("Logged in");
-          res.send("Logged in");
+          if (result1[0].userStatus == "suspended") {
+            res.status(200).send("Suspended");
+          } else {
+            res.status(200).send("Logged in");
+          }
         } else {
           console.log("Email is in use in different login method");
           res.send("Email is in use in different login method");
