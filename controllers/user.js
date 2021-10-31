@@ -70,8 +70,10 @@ const getUsers = (req, res) => {
 };
 
 const suspendUsers = (req, res) => {
+  const userID = req.body.userID;
   db.query(
     "UPDATE user SET userStatus = 'suspended' WHERE userID = ?",
+    [userID],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -85,8 +87,10 @@ const suspendUsers = (req, res) => {
 };
 
 const unsuspendUsers = (req, res) => {
+  const userID = req.body.userID;
   db.query(
     "UPDATE user SET userStatus = 'active' WHERE userID = ?",
+    [userID],
     (err, result) => {
       if (err) {
         console.log(err);
