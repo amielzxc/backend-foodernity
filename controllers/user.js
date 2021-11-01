@@ -59,7 +59,7 @@ const updateUserDetailsGoogle = (req, res) => {
 };
 
 const getUsers = (req, res) => {
-  db.query("SELECT * FROM user", (err, result) => {
+  db.query("SELECT * FROM user WHERE userType='user'", (err, result) => {
     if (err) {
       console.log(err);
       res.status(500).send(err);
