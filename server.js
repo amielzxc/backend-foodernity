@@ -23,9 +23,6 @@ const donations = require("./routes/donations.js");
 const stocks = require("./routes/stocks.js");
 const forgotPassword = require("./routes/forgotPassword.js");
 const notif = require("./routes/notif.js");
-// const listingItem = require("./routes/listingItem.js");
-// const message = require("./routes/message.js");
-// const login = require("./routes/login.js");
 
 app.use("/signup", signup);
 app.use("/login", login);
@@ -36,8 +33,6 @@ app.use("/donations", donations);
 app.use("/stocks", stocks);
 app.use("/forgotPassword", forgotPassword);
 app.use("/notif", notif);
-// app.use("/message", message);
-// app.use("/", login);
 
 app.listen(port, () => {
   console.log(`running on port: ${port}`);
