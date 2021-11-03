@@ -5,7 +5,7 @@ const getDonations = (req, res) => {
   // const password = req.body.password;
 
   db.query(
-    "SELECT user.fullName, donationtable.* FROM user INNER JOIN donationtable ON user.userID=donationtable.donationDonor WHERE donationtable.status='pending' OR donationtable.status='accepted'",
+    "SELECT user.fullName,user.email, donationtable.* FROM user INNER JOIN donationtable ON user.userID=donationtable.donationDonor WHERE donationtable.status='pending' OR donationtable.status='accepted'",
     (err, result) => {
       if (err) {
         console.log(err);
@@ -102,8 +102,6 @@ const receiveDonation = (req, res) => {
       if (err) {
         console.log(err);
         res.status(500).send(err);
-
-      
       } else {
         console.log(result);
         // res.status(200).send(result);
