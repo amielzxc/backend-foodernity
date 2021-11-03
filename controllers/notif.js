@@ -79,4 +79,5 @@ const getNotifsFor = (req, res) => {
 module.exports = {
   notifyReceive,
   notifyAccept,
+  getNotifsFor
 };
