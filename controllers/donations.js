@@ -161,6 +161,18 @@ const getCallForDonations = (req, res) => {
     }
   });
 };
+const getCallForDonationsUnfulfilled = (req, res) => {
+  db.query("SELECT * FROM callfordonation WHERE status='unfulfilled'", (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(err);
+    } else {
+      console.log(result);
+      console.log("fetch call for donation");
+      res.status(200).send(result);
+    }
+  });
+};
 
 const updateCallForDonations = (req, res) => {
   const ID = req.body.ID;
@@ -223,4 +235,5 @@ module.exports = {
   getCallForDonations,
   updateCallForDonations,
   distributeDonations,
+  getCallForDonationsUnfulfilled
 };
