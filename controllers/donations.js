@@ -258,4 +258,5 @@ module.exports = {
   updateCallForDonations,
   distributeDonations,
   getCallForDonationsUnfulfilled,
+  getDistributedDonations,
 };
