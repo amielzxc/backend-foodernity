@@ -232,22 +232,18 @@ const distributeDonations = (req, res) => {
 
 const getDistributedDonations = (req, res) => {
   // db.connect();
-  db.query(
-    "SELECT * FROM distributeddonations",
-    [donorEmail],
-    (err, result) => {
-      if (err) {
-        console.log(result);
-        console.log("error");
-        res.send(err);
-      } else {
-        console.log(result);
-        console.log("Distributed donations fetched successfully!");
-        //
-        res.send(result);
-      }
+  db.query("SELECT * FROM distributeddonations", (err, result) => {
+    if (err) {
+      console.log(result);
+      console.log("error");
+      res.send(err);
+    } else {
+      console.log(result);
+      console.log("Distributed donations fetched successfully!");
+      //
+      res.send(result);
     }
-  );
+  });
 };
 module.exports = {
   getDonations,
