@@ -162,16 +162,19 @@ const getCallForDonations = (req, res) => {
   });
 };
 const getCallForDonationsUnfulfilled = (req, res) => {
-  db.query("SELECT * FROM callfordonation WHERE status='unfulfilled'", (err, result) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send(err);
-    } else {
-      console.log(result);
-      console.log("fetch call for donation");
-      res.status(200).send(result);
+  db.query(
+    "SELECT * FROM callfordonation WHERE status='unfulfilled'",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      } else {
+        console.log(result);
+        console.log("fetch call for donation");
+        res.status(200).send(result);
+      }
     }
-  });
+  );
 };
 
 const updateCallForDonations = (req, res) => {
@@ -227,6 +230,25 @@ const distributeDonations = (req, res) => {
   );
 };
 
+const getDistributedDonations = (req, res) => {
+  // db.connect();
+  db.query(
+    "SELECT * FROM distributeddonations",
+    [donorEmail],
+    (err, result) => {
+      if (err) {
+        console.log(result);
+        console.log("error");
+        res.send(err);
+      } else {
+        console.log(result);
+        console.log("Distributed donations fetched successfully!");
+        //
+        res.send(result);
+      }
+    }
+  );
+};
 module.exports = {
   getDonations,
   acceptDonation,
@@ -235,5 +257,5 @@ module.exports = {
   getCallForDonations,
   updateCallForDonations,
   distributeDonations,
-  getCallForDonationsUnfulfilled
+  getCallForDonationsUnfulfilled,
 };
