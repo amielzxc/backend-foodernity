@@ -68,9 +68,7 @@ const getNotifsFor = (req, res) => {
           "Notifications for " + donorEmail + " has been fetched successfully."
         );
         //
-        res.send(
-          "Notifications for " + donorEmail + " has been fetched successfully."
-        );
+        res.send(result);
       }
     }
   );
@@ -79,5 +77,5 @@ const getNotifsFor = (req, res) => {
 module.exports = {
   notifyReceive,
   notifyAccept,
-  getNotifsFor
+  getNotifsFor,
 };
