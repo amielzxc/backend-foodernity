@@ -24,6 +24,7 @@ const stocks = require("./routes/stocks.js");
 const forgotPassword = require("./routes/forgotPassword.js");
 const notif = require("./routes/notif.js");
 const logout = require("./routes/logout.js");
+const visit = require("./routes/visit.js");
 
 app.use("/signup", signup);
 app.use("/login", login);
@@ -35,6 +36,7 @@ app.use("/stocks", stocks);
 app.use("/forgotPassword", forgotPassword);
 app.use("/notif", notif);
 app.use("/logout", logout);
+app.use("/visit", visit);
 
 app.listen(port, () => {
   console.log(`running on port: ${port}`);
