@@ -24,19 +24,22 @@ const addVisitCount = (req, res) => {
 const getVisitCount = (req, res) => {
   //func
 
-  db.query("SELECT * FROM visit", (err, result) => {
-    if (err) {
-      console.log(result);
-      console.log("error");
-      res.send(err);
-    } else {
-      console.log(result);
-      console.log("Visit table fetched successfully");
-      //
+  db.query(
+    "SELECT * FROM visit WHERE visitID=(SELECT max(visitID) FROM visit)",
+    (err, result) => {
+      if (err) {
+        console.log(result);
+        console.log("error");
+        res.send(err);
+      } else {
+        console.log(result);
+        console.log("Visit count fetched successfully");
+        //
 
-      res.send(result);
+        res.send(result);
+      }
     }
-  });
+  );
 };
 
 module.exports = {
