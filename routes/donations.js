@@ -22,6 +22,6 @@ router.post("/updateCallForDonations", updateCallForDonations);
 router.post("/distributeDonations", distributeDonations);
 router.post("/getCallForDonationsUnfulfilled", getCallForDonationsUnfulfilled);
 router.post("/getDistributedDonations", getDistributedDonations);
-router.post("/getDonationsFor,", getDonationsFor);
+router.post("/getDonationsFor", getDonationsFor);
 
 module.exports = router;
