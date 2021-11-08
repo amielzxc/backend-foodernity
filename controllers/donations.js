@@ -245,6 +245,68 @@ const getDistributedDonations = (req, res) => {
     }
   });
 };
+
+const getPendingDonationsFor = (req, res) => {
+  const donorID = req.body.donorID;
+  // db.connect();
+  db.query(
+    "SELECT * FROM donationtable WHERE status='pending' AND donationDonor=?",
+    [donorID],
+    (err, result) => {
+      if (err) {
+        console.log(result);
+        console.log("error");
+        res.send(err);
+      } else {
+        console.log(result);
+        console.log("pending donations fetched successfully!");
+        //
+        res.send(result);
+      }
+    }
+  );
+};
+
+const getAcceptedDonationsFor = (req, res) => {
+  const donorID = req.body.donorID;
+  // db.connect();
+  db.query(
+    "SELECT * FROM donationtable WHERE status='accepted' AND donationDonor=?",
+    [donorID],
+    (err, result) => {
+      if (err) {
+        console.log(result);
+        console.log("error");
+        res.send(err);
+      } else {
+        console.log(result);
+        console.log("accepted donations fetched successfully!");
+        //
+        res.send(result);
+      }
+    }
+  );
+};
+const getReceivedDonationsFor = (req, res) => {
+  const donorID = req.body.donorID;
+  // db.connect();
+  db.query(
+    "SELECT * FROM donationtable WHERE status='received' AND donationDonor=?",
+    [donorID],
+    (err, result) => {
+      if (err) {
+        console.log(result);
+        console.log("error");
+        res.send(err);
+      } else {
+        console.log(result);
+        console.log("received donations fetched successfully!");
+        //
+        res.send(result);
+      }
+    }
+  );
+};
 module.exports = {
   getDonations,
   acceptDonation,
@@ -255,4 +317,7 @@ module.exports = {
   distributeDonations,
   getCallForDonationsUnfulfilled,
   getDistributedDonations,
+  getAcceptedDonationsFor,
+  getPendingDonationsFor,
+  getReceivedDonationsFor
 };

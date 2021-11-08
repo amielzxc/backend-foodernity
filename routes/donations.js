@@ -9,6 +9,9 @@ const {
   distributeDonations,
   getCallForDonationsUnfulfilled,
   getDistributedDonations,
+  getAcceptedDonationsFor,
+  getPendingDonationsFor,
+  getReceivedDonationsFor,
 } = require("../controllers/donations.js");
 const router = express.Router();
 
@@ -21,4 +24,7 @@ router.post("/updateCallForDonations", updateCallForDonations);
 router.post("/distributeDonations", distributeDonations);
 router.post("/getCallForDonationsUnfulfilled", getCallForDonationsUnfulfilled);
 router.post("/getDistributedDonations", getDistributedDonations);
+router.post("/getAcceptedDonationsFor", getAcceptedDonationsFor);
+router.post("/getPendingDonationsFor", getPendingDonationsFor);
+router.post("/getReceivedDonationsFor", getReceivedDonationsFor);
 module.exports = router;
