@@ -92,6 +92,8 @@ const loginViaGoogle = (req, res) => {
               console.log(result);
               console.log("error");
               res.send(err);
+
+              //
             } else {
               console.log(result);
               console.log("new user added successfully via google login");
