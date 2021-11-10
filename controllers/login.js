@@ -62,7 +62,7 @@ const loginViaGoogle = (req, res) => {
         console.log(result[0]);
         if (result[0].loginMethod == "google") {
           console.log("Logged in");
-          if (result1[0].userStatus == "suspended") {
+          if (result[0].userStatus == "suspended") {
             res.status(200).send("Suspended");
           } else {
             res.status(200).send("Logged in");
