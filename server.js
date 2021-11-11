@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("Sira apk ng capstone");
+  res.send("Hello from Stack over flowers");
 });
 
 const signup = require("./routes/signup.js");
